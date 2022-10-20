@@ -7,13 +7,13 @@ function Header() {
       <Container>
         <Information>
             <Image src='/images/logo.png'/>
-            <Name>Sebastián Guevara</Name>
+            <Name>SEBASTIÁN GUEVARA</Name>
         </Information>
         <ButtonsContainer>
-            <Home>Inicio</Home>
-            <About>Sobre mí</About>
-            <Projects>Proyectos</Projects>
-            <Contact>Contacto</Contact>
+            <Home>INICIO</Home>
+            <About>SOBRE MÍ</About>
+            <Projects>PROYECTOS</Projects>
+            <Contact>CONTACTO</Contact>
         </ButtonsContainer>
       </Container>
     </div>
@@ -27,8 +27,9 @@ display: flex;
 flex-direction: row;
 position: relative;
 justify-content: space-around;
-background: #EB1D36;
+background:#F2F2F2;
 height: 90px;
+box-shadow: 0px -2px 108px -8px rgba(0,0,0,0.3);
 `
 const Information = styled.div`
 display: flex;
@@ -46,7 +47,8 @@ margin-left: 30px;
 `
 const Name = styled.h2`
 display:flex;
-color: #F5EDDC;
+color: #926454;
+font-family: 'Reem Kufi', sans-serif;
 margin-top: 25px;
 margin-left: 20px;
 `
@@ -60,12 +62,19 @@ gap: 50px;
 `
 
 const Home = styled.button`
-color:#F5EDDC;
+color:#926454;
 background: transparent;
 border: transparent;
 font-size:1.3rem;
-font-weight: bold;
+font-family: 'Reem Kufi', sans-serif;
 cursor: pointer;
+transition: all 0.5s ease-out;
+
+&:hover
+{
+    font-size:1.4rem;
+    color:#E0242D;
+}
 `
 const About = styled(Home)`
 `
