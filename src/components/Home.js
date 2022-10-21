@@ -1,34 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-function Body() {
+function Home() {
   return (
     <Container>
         <Introduction>
             <Description>Hola, soy Sebastián</Description>
-            <Projects>PROYECTOS</Projects>
-        </Introduction>
-        
+            <Link to={'/projects'}>
+              <Projects>PROYECTOS</Projects>
+            </Link>
+        </Introduction>     
     </Container>
   )
 }
 
-export default Body
+export default Home
 
-const Container = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-height: calc(100vh - 70px);
+const Container = styled.main`
+min-height: calc(100vh - 90px);
 padding: 0 calc(3.5vw + 5px);
 position: relative;
-overflow: hidden;
-
-&::before {
+overflow-x: hidden;
+    &:before {
         background: url("/images/background.png") center center / cover no-repeat fixed;
         content: ""; 
-        position: absolute;
-        opacity: 65%;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -37,18 +34,10 @@ overflow: hidden;
     }
 `
 const Introduction = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-position: absolute;
-align-self: center;
-justify-self: center;
-width: auto;
-height: auto;
-max-width: 800px;
-background: transparent;
-top: 15vh;
+position: relative;
+top: 20vh;
+max-width:800px;
+margin:0px auto;
 `
 const Description = styled.p`
 display: flex;
@@ -67,7 +56,7 @@ color: black;
 }
 `
 const Projects = styled.button`
-width: 35%;
+width: 13vw;
 height: 70px;
 border-radius: 5px;
 border: transparent;
@@ -81,7 +70,7 @@ color: #f2f2f2;
 box-shadow: 0px 20px 50px -9px rgba(0,0,0,0.6);
 
 &:hover{
-width: 40%;
+width: 17vw;
 box-shadow: 0px 20px 50px -9px rgba(0,0,0,0.8);
 }
 `

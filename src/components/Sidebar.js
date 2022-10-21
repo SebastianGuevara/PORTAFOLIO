@@ -23,7 +23,7 @@ export default Sidebar
 const Container = styled.div`
 display: flex;
 flex-direction: column;
-position: absolute;
+position: fixed;
 background: white;
 height: auto;
 width: 60px;

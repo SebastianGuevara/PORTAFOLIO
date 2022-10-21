@@ -37,15 +37,14 @@ function Language() {
 export default Language
 
 const Container = styled.div`
-position: absolute;
+position: fixed;
 right: 20px;
 bottom: 40px;
 background-color:#e0242d;
 width: 120px;
 height: 100px;
 border-radius: 5px;
-
-
+z-index: 1;
 `
 const Text = styled.p`
 color: white;

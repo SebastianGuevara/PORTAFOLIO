@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 function Header() {
   return (
@@ -10,10 +11,18 @@ function Header() {
             <Name>SEBASTIÁN GUEVARA</Name>
         </Information>
         <ButtonsContainer>
-            <Home>INICIO</Home>
-            <About>SOBRE MÍ</About>
-            <Projects>PROYECTOS</Projects>
-            <Contact>CONTACTO</Contact>
+            <Link to={'/'}>
+              <Home>INICIO</Home>
+            </Link>
+            <Link to={'/about'}>
+              <About>SOBRE MÍ</About>
+            </Link>
+            <Link to={'/projects'}>
+              <Projects>PROYECTOS</Projects>
+            </Link>
+            <Link to={'/contact'}>
+              <Contact>CONTACTO</Contact>
+            </Link>
         </ButtonsContainer>
       </Container>
     </div>
@@ -25,11 +34,13 @@ export default Header
 const Container = styled.div`
 display: flex;
 flex-direction: row;
-position: relative;
+position: fixed;
 justify-content: space-around;
-background:#F2F2F2;
+background:white;
 height: 90px;
+width: 100vw;
 box-shadow: 0px -2px 108px -8px rgba(0,0,0,0.3);
+z-index: 1;
 `
 const Information = styled.div`
 display: flex;
