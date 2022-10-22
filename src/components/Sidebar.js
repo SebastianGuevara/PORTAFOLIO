@@ -11,9 +11,9 @@ function Sidebar() {
         <Linkedin>
             <Icon icon="akar-icons:linkedin-box-fill" width="40" height="40" />
         </Linkedin>
-        <Twitter>
-            <Icon icon="akar-icons:twitter-fill" width="40" height="40" />
-        </Twitter>
+        <Discord>
+            <Icon icon="akar-icons:discord-fill" width="40" height="40" />
+        </Discord>
     </Container>
   )
 }
@@ -55,5 +55,5 @@ border-radius: 10px;
 `
 const Linkedin = styled(Github) `
 `
-const Twitter = styled(Github) `
+const Discord = styled(Github) `
 `

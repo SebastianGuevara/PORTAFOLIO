@@ -41,6 +41,7 @@ height: 90px;
 width: 100vw;
 box-shadow: 0px -2px 108px -8px rgba(0,0,0,0.3);
 z-index: 1;
+top:0;
 `
 const Information = styled.div`
 display: flex;

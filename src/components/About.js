@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
+
 
 function About() {
   return (
-    <Container>
-      <Content>
+    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{ opacity:0, transition: {duration: 0.1}}}>
+      
+       <Content>
         <Info>
           <Photo src='/images/logo.png'/>
           <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Description>
@@ -24,34 +27,18 @@ function About() {
             <Skill>Unity</Skill>
             <Skill>Scrum</Skill>
             <Skill>SQL</Skill>
-            <Skill>GIT</Skill>
+             <Skill>GIT</Skill>
             <Skill>.NET</Skill>
             <Skill>Xamarin</Skill>
           </SkillsContainer>
         </Skills>
-      </Content>
-    </Container>
+      </Content>  
+    </motion.div>
   )
 }
 
 export default About
 
-const Container = styled.main`
-min-height: calc(100vh - 70px);
-padding: 0 calc(3.5vw + 5px);
-position: relative;
-overflow: hidden;
-    &:before {
-        background: url("/images/background.png") center center / cover no-repeat fixed;
-        content: ""; 
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-    }
-`
 const Content = styled.div`
 display: flex;
 flex-direction: column;
@@ -122,8 +109,6 @@ border-radius: 50px;
 box-shadow: 0px 20px 50px 0px rgba(0,0,0,0.3);
 transition: 1s;
 cursor: default;
-user-select: none;
-
 
 &:hover{
 background-color: #e0242d;

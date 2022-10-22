@@ -1,43 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 function Home() {
   return (
-    <Container>
-        <Introduction>
-            <Description>Hola, soy Sebastián</Description>
-            <Link to={'/projects'}>
-              <Projects>PROYECTOS</Projects>
-            </Link>
-        </Introduction>     
-    </Container>
+    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{ opacity:0, transition: {duration: 0.1}}}>
+      <Introduction>
+          <Description>Hola, soy Sebastián</Description>
+          <Link to={'/projects'}>
+            <Projects>PROYECTOS</Projects>
+          </Link>
+      </Introduction>  
+    </motion.div>
   )
 }
 
 export default Home
 
-const Container = styled.main`
-min-height: calc(100vh - 90px);
-padding: 0 calc(3.5vw + 5px);
-position: relative;
-overflow-x: hidden;
-    &:before {
-        background: url("/images/background.png") center center / cover no-repeat fixed;
-        content: ""; 
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-    }
-`
 const Introduction = styled.div`
-position: relative;
-top: 20vh;
 max-width:800px;
-margin:0px auto;
+margin:13% auto;
+height: 100vh;
 `
 const Description = styled.p`
 display: flex;
