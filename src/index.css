@@ -1,11 +1,11 @@
 body {
   margin: 0;
   background: #F2F2F2;
-  overflow: hidden;
   font-family:'Reem Kufi', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
+  overflow-x: hidden;
 }
 
 code {

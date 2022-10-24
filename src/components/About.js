@@ -27,7 +27,7 @@ function About() {
             <Skill>Unity</Skill>
             <Skill>Scrum</Skill>
             <Skill>SQL</Skill>
-             <Skill>GIT</Skill>
+            <Skill>GIT</Skill>
             <Skill>.NET</Skill>
             <Skill>Xamarin</Skill>
           </SkillsContainer>
@@ -41,16 +41,18 @@ export default About
 
 const Content = styled.div`
 display: flex;
+position: absolute;
 flex-direction: column;
-position: relative;
-top: 25vh;
 align-items: center;
 justify-content: center;
+min-height: calc(100vh - 90px);
+width: 100vw;
+bottom:0;
+right:0;
 `
 
 const Info = styled.div`
 display: flex;
-position: relative;
 bottom: 100px;
 align-items: center;
 height: 50vh;
@@ -82,8 +84,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-position: relative;
-bottom: 80px;
+height: auto;
 `
 const SkillsTitle = styled.p`
 font-size: 2rem;
@@ -96,9 +97,6 @@ grid-template-rows: repeat(3, minmax(auto, auto));
 grid-gap: 1rem;
 grid-auto-flow: row;
 height: auto;
-margin-bottom:300px;
-
-
 `
 const Skill = styled.div`
 background: White;

@@ -1,20 +1,23 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Icon } from '@iconify/react';
+import { motion } from 'framer-motion';
 
 function Sidebar() {
   return (
-    <Container>
-        <Github>
-            <Icon icon="akar-icons:github-fill" width="40" height="40" id='gh'/>
-        </Github>
-        <Linkedin>
-            <Icon icon="akar-icons:linkedin-box-fill" width="40" height="40" />
-        </Linkedin>
-        <Discord>
-            <Icon icon="akar-icons:discord-fill" width="40" height="40" />
-        </Discord>
-    </Container>
+    <motion.div initial={{opacity:1}} animate={{opacity:1}} exit={{ opacity:0, transition: {duration: 0.1}}}>
+        <Container>
+            <Github>
+                <Icon icon="akar-icons:github-fill" width="40" height="40" id='gh'/>
+            </Github>
+            <Linkedin>
+                <Icon icon="akar-icons:linkedin-box-fill" width="40" height="40" />
+            </Linkedin>
+            <Discord>
+                <Icon icon="akar-icons:discord-fill" width="40" height="40" />
+            </Discord>
+        </Container>
+    </motion.div>
   )
 }
 
@@ -31,7 +34,7 @@ left:0px;
 top: 350px;
 padding: 10px 0px 5px 5px;
 gap: 30px;
-box-shadow: 25px 0px 38px -11px rgba(0,0,0,0.29);
+box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 border-radius:0px 5px 5px 0px;
 z-index:1;
 `
