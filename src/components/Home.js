@@ -19,13 +19,15 @@ function Home() {
 export default Home
 
 const Introduction = styled.div`
-max-width:800px;
-margin:13% auto;
-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height:calc(100vh - 90px);
+width:100vw;
 `
 const Description = styled.p`
 display: flex;
-
 flex-direction: column;
 font-size: 5rem;
 font-weight: bold;
@@ -37,6 +39,7 @@ color: black;
     font-family: sans-serif;
     font-weight: normal;
     margin-top:30px;
+    width: 50vw;
 }
 `
 const Projects = styled.button`

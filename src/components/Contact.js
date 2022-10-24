@@ -30,9 +30,11 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-position: relative;
-top: 5vh;
-height: 100vh;
+position: absolute;
+bottom: 0;
+right: 0;
+min-height: calc(100vh - 90px);
+width: 100vw;
 `
 const Buttons = styled.div`
 display: flex;
