@@ -181,7 +181,6 @@ width: 25vw;
 height: 65vh;
 margin: auto;
 border-radius:10px;
-border: 1px solid #e0242d;
 box-shadow: 0px 12px 14px -1px rgba(0,0,0,0.4);
 z-index:1;
 transition: 1s;
@@ -219,17 +218,14 @@ div#hover
   border-radius:10px;
   box-shadow: inset 0px 0px 84px 0px rgba(0,0,0,0.4);
 
-
 }
 
 &:hover
 {
-  border: transparent;
-  height:66vh;
   box-shadow: 0px 12px 14px -1px rgba(0,0,0,0.7);
+  border: transparent;
   div#hover
   {
-    height:66vh;
     opacity:1;
   }
 }
