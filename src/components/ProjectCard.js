@@ -26,6 +26,7 @@ function ProjectCard() {
 
                 <Technologies>
                   {
+                    project.technology &&
                     Object.values(project.technology).map((tech)=>(
                       <Technology>
                       <TechnologyImg>
@@ -59,6 +60,7 @@ margin-bottom: 40px;
 const Project = styled.div`
 background-color: white;
 width: 25vw;
+min-height: 609.05px;
 height: 65vh;
 margin: auto;
 border-radius:10px;
@@ -119,7 +121,7 @@ div#description
 
 const Technologies = styled.div`
 display: grid;
-grid-template-columns: repeat(5, 1fr);
+grid-template-columns: repeat(6, 1fr);
 width:100%;
 height: 11vh;
 
@@ -143,6 +145,7 @@ align-items: center;
 justify-content: center;
 width: 3.5vw;
 height: 11vh;
+max-height:103.07px;
 background-color: rgba(0,0,0,0.15);
 margin: auto;
 border-radius: 20px;
