@@ -1,45 +1,60 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import { Icon } from '@iconify/react'
+import { selectProjects } from '../features/projectSlice'
+import { useSelector } from 'react-redux'
+import db from '../firebase'
 
 function ProjectCard() {
+  const projects = useSelector(selectProjects)
+
   return (
-    <div>
-         <Project>
-            <div id='hover'>
-              <Button><Icon icon="akar-icons:github-fill" width="40" height="40" id='gh'/>Repositorio</Button>
-              <Button><Icon icon="pepicons:internet" width="40" height="40" />Visítalo</Button>
-            </div> 
-            <img src='/images/project.png' alt=''/>
-            <h1>Clon de Disney +</h1>
-            <p>Este es un proyecto de React el cual tiene como objetivo parecerse a la famosa plataforma de streaming Disney +. </p>
-            <h4>Tecnologías</h4>
-            <Technologies>
-              <Technology>
-                <TechnologyImg>
-                  <img src='/images/react.png' alt=''/>
-                </TechnologyImg>
-                <p>React</p>
-              </Technology>
-              <Technology>
-                <TechnologyImg>
-                  <img src='/images/redux.png' alt=''/>
-                </TechnologyImg>
-                <p>Redux</p>
-              </Technology>
-              <Technology>
-                <TechnologyImg>
-                  <img src='/images/firebase.png' alt=''/>
-                </TechnologyImg>
-                <p>Firebase</p>
-              </Technology>
-            </Technologies>     
-          </Project>    
-    </div>
+    <ProjectsContainer>
+        {
+            projects && projects.map((project) => (
+            <Project key = {project.id}>
+                <div id='hover'>
+                    <Button href={project.repo} target='_blank'><Icon icon="akar-icons:github-fill" width="40" height="40" id='gh'/>Repositorio</Button>
+                    <Button href={project.webpage} target='_blank'><Icon icon="pepicons:internet" width="40" height="40" />Visítalo</Button>
+                </div> 
+                <img src={project.cardImg} alt=''/>
+                <h1>{project.title}</h1>
+                <div id='description'>
+                    <p>{project.description} </p>
+                </div>
+                <h4>Tecnologías</h4>
+
+                <Technologies>
+                  {
+                    Object.values(project.technology).map((tech)=>(
+                      <Technology>
+                      <TechnologyImg>
+                        <img src={tech.img} alt=''/>
+                      </TechnologyImg>
+                      <p>{tech.title}</p>
+                    </Technology>                    
+                    ))
+                    
+                  }
+                </Technologies>     
+            </Project>  
+            ))
+        }
+  
+    </ProjectsContainer>
   )
 }
 
 export default ProjectCard
+
+const ProjectsContainer = styled.div`
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+grid-gap: 25px;
+grid-auto-flow: row;
+width:80vw;
+margin-bottom: 40px;
+`
 
 const Project = styled.div`
 background-color: white;
@@ -85,6 +100,10 @@ div#hover
   box-shadow: inset 0px 0px 84px 0px rgba(0,0,0,0.4);
 
 }
+div#description
+{
+    height: 12%;
+}
 
 &:hover
 {
@@ -96,14 +115,14 @@ div#hover
   }
 }
 
-
 `
+
 const Technologies = styled.div`
 display: grid;
 grid-template-columns: repeat(5, 1fr);
-width:83%;
+width:100%;
 height: 11vh;
-margin: auto;
+
 overflow: hidden;
 `
 const TechnologyImg = styled.div`
@@ -136,7 +155,7 @@ p
   margin-bottom:8px;
 }
 `
-const Button = styled.button`
+const Button = styled.a`
 display:flex;
 flex-direction: row;
 align-items: center;
@@ -152,6 +171,7 @@ box-shadow: 0px 12px 14px -1px rgba(0,0,0,0.4);
 cursor: pointer;
 transition: 0.5s;
 gap: 15px;
+text-decoration: none; 
 
 &:hover
 {

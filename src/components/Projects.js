@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import ProjectCard from './ProjectCard'
+import db from '../firebase'
+import { useDispatch } from 'react-redux'
+import { setProjects } from '../features/projectSlice'
 
 function Projects() {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    db.collection("Proyectos").onSnapshot((snapshot) =>
+    {
+      let tempProjects = snapshot.docs.map((doc) =>{
+        return {id: doc.id, ...doc.data()}
+      })
+      dispatch(setProjects(tempProjects));     
+    })
+  },[])
+
+
+
   return (
     <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{ opacity:0, transition: {duration: 0.1}}}>
       <Container>
@@ -11,10 +28,6 @@ function Projects() {
           <p>Proyectos</p>
         </TitleContainer>
         <ProjectsContainer>
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
-          <ProjectCard/>
           <ProjectCard/>
         </ProjectsContainer>
       </Container>  
@@ -55,8 +68,8 @@ margin-top:50px;
 
 const ProjectsContainer = styled.div`
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-gap: 1rem;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+grid-gap: 25px;
 grid-auto-flow: row;
 width:80vw;
 margin-bottom: 40px;
